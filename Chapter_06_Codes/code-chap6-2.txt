@@ -1,0 +1,26 @@
+//Fetching and returning the variables
+
+add_filter (	rest_pre_dispatch',	'rest_cache_get',	10,	2	);
+function rest_cache_get( $result, $server ) {
+					//Checking to see if rebuild	callback exists,	if it does not then return unmodified.
+	
+if	(	!	function_exists('rest_cache_rebuild')	)	{
+return $result;
+}
+	
+	 //get the REST request and hash it to make the transient key
+$request_uri	=	$_SERVER[	'REQUEST_URI'	];
+$key	=	md5(	$request_uri	);
+	
+	
+	
+	 //return the cache or build cache
+$result	=		transient(	__FUNCTION__	.	$key		)
+	
+->updates_with(	'rest_cache_rebuild',	array(	$server		)	)
+	
+->expires_in(	600	)
+	
+->get();
+return $result;
+}

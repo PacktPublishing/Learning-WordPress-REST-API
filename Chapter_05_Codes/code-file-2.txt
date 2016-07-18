@@ -1,0 +1,66 @@
+protected function perform_query( $reqst, $argz, $respond = true) {
+   $posts_query  = new \WP_Query();
+   $query_result = $posts_query->query( $argz );
+$data = array();
+if ( ! empty( $query_result ) ) {
+foreach ( $query_result as $post ) {
+         $image = get_post_thumbnail_id( $post->ID );
+if ( $image ) {
+$_image = wp_get_attachment_image_src( $image, 'large' );
+if ( is_array( $_image ) ) {
+               $image = $_image[0];
+}
+}
+         $data[ $post->ID ] =
+            'name'         =>
+            'link'         =>
+            'image_markup' =>
+            'image_src'    =>
+            'excerpt'      =>
+            'tagline'      =>
+            'price'       =>
+            'slug'         =>
+);
+array(
+$post->post_title,
+get_the_permalink( $post->ID ),
+get_the_post_thumbnail( $post->ID, 'large' ),
+$image,
+$post->post_excerpt,
+get_post_meta( $post->ID, 'product_tagline', true ),
+edd_get_variable_price( $post->ID ),
+$post->post_name,
+         for ( $i = 1; $i <= 3; $i++ ) {
+foreach( array(
+'title',
+               'text',
+'image'
+            ) as $field ) {
+               if ( 'image' != $field ) {
+                  $field                       = "sample_{$i}_{$field}";
+                  $data[ $post->ID ][ $field ] = get_post_meta( $post->ID, $field, true );
+}else{
+                  $field                       = "sample_{$i}_{$field}";
+                  $_field = get_post_meta( $post->ID, $field, true );
+$url = false;
+                  if ( is_array( $_field ) && isset( $_field[ 'ID' ] )) {
+                     $img = $_field[ 'ID' ];
+$img = wp_get_attachment_image_src( $img, 'large' );
+if ( is_array( $img ) ) {
+                        $url = $img[0];
+}
+}
+                  $_field[ 'image_src' ] = $url;
+                  $data[ $post->ID ][ $field ] = $_field;
+}
+}
+}
+}
+}
+return $data;
+if ( $respond ) {
+      return $this->create_resp( $reqst, $argz, $data );
+} else {
+return $data;
+}
+}
