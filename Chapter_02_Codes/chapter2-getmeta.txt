@@ -1,0 +1,19 @@
+//GET post meta fields; chapter 2
+
+function get_post_meta_clbk( $object, $field_name, $request ) {
+return get_post_meta( $object[ 'id' ], $field_name );
+}
+function update_post_meta_clbk( $value, $object, $field_name ) {
+return update_post_meta( $object[ 'id' ], $field_name, $value );
+}
+
+add_action( 'rest_api_init', function() {
+register_api_field( 'painter',
+'water_color',
+array(
+'get_callback'  => 'get_post_meta_clbk',
+'update_callback' => 'update_post_meta_clbk',
+'schema'  => null,
+)
+);
+});

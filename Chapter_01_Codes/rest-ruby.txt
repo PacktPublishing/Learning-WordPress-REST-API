@@ -1,0 +1,14 @@
+require 'net/http'
+url = 'http://www.example.com/database/1191' 
+resp = Net::HTTP.get_response(URI.parse(url))
+resp_text = resp.body
+In the above example, we are using an object to handle the HTTP response code. 
+Similarly, for POST requests: 
+require 'net/http'
+url = 'http://www.example.com/database/user'
+params = {
+  firstName => 'Sample',
+  lastName => 'User'
+}
+resp = Net::HTTP.post_form(url, params)
+resp_text = resp.body
