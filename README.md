@@ -11,4 +11,4 @@ Related Books
 
 *[WordPress Web Application Development](https://www.packtpub.com/web-development/wordpress-web-application-development?utm_source=github&utm_medium=repo&utm_campaign=9781783280759)
 
-*[WordPress Web Application Development - Second Edition(https://www.packtpub.com/application-development/wordpress-web-application-development-second-edition?utm_source=github&utm_medium=repo&utm_campaign=9781782174394)
+*[WordPress Web Application Development - Second Edition](https://www.packtpub.com/application-development/wordpress-web-application-development-second-edition?utm_source=github&utm_medium=repo&utm_campaign=9781782174394)
