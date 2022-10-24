@@ -20,3 +20,7 @@ This book is for WordPress developers and designers who want to get a complete p
 * [WordPress Web Application Development](https://www.packtpub.com/web-development/wordpress-web-application-development?utm_source=github&utm_medium=repository&utm_campaign=9781783280759)
 
 * [WordPress Web Application Development - Second Edition](https://www.packtpub.com/application-development/wordpress-web-application-development-second-edition?utm_source=github&utm_medium=repository&utm_campaign=9781782174394)
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781786469243">https://packt.link/free-ebook/9781786469243 </a> </p>
